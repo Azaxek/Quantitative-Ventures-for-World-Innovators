@@ -18,9 +18,9 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Info Column */}
           <div>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">Get in <span className="text-blue-600">Touch</span></h1>
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tight">Pitch <span className="text-blue-600">Enquiries</span></h1>
             <p className="text-xl text-slate-500 mb-12 max-w-lg leading-relaxed">
-              Have questions about your application or the QVWI program? Our team is here to help you navigate the process.
+              Have questions about the competition format, eligibility, or judging? Reach out to our organizing committee.
             </p>
 
             <div className="space-y-8 mb-16">
@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Email Support</span>
-                  <a href="mailto:contact@qvwi-innovators.org" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors">contact@qvwi-innovators.org</a>
+                  <a href="mailto:pitch@qvwi-innovators.org" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors">pitch@qvwi-innovators.org</a>
                 </div>
               </div>
 
@@ -49,24 +49,24 @@ const Contact: React.FC = () => {
                   <MapPin size={28} />
                 </div>
                 <div>
-                  <span className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Innovation Hub</span>
+                  <span className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1">Competition Hub</span>
                   <span className="text-xl font-bold text-slate-900">Palo Alto, CA 94301, USA</span>
                 </div>
               </div>
             </div>
 
             <div className="p-8 bg-slate-900 rounded-3xl text-white">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><MessageSquare className="text-blue-400" /> FAQ Sessions</h3>
-              <p className="text-slate-400 mb-6">Join our monthly virtual office hours to ask live questions to the review board.</p>
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><MessageSquare className="text-blue-400" /> Pitch Deck Reviews</h3>
+              <p className="text-slate-400 mb-6">Want feedback on your deck before the official submission? Join our pre-pitch workshops.</p>
               <button className="flex items-center gap-2 text-blue-400 font-bold hover:underline">
-                View Schedule <ExternalLink size={16} />
+                Register for Workshop <ExternalLink size={16} />
               </button>
             </div>
           </div>
 
           {/* Form Column */}
           <div className="bg-white rounded-[2.5rem] shadow-xl p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">Send a Message</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-8">Send Organizers a Message</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-6">
                 <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Full Name</label>
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
                   required
                   type="text"
                   className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="Aryav Agrawal"
+                  placeholder="Enter your name"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                 />
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                   required
                   type="email"
                   className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="aryav@example.com"
+                  placeholder="name@startup.com"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                 />
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                 <textarea
                   required
                   className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none h-48 resize-none"
-                  placeholder="How can we help you?"
+                  placeholder="How can we help your application?"
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 ></textarea>

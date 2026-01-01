@@ -25,15 +25,15 @@ const Register: React.FC = () => {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mx-auto mb-8">
             <ShieldCheck size={40} />
           </div>
-          <h2 className="text-3xl font-black text-slate-900 mb-4">Application Received!</h2>
+          <h2 className="text-3xl font-black text-slate-900 mb-4">Pitch Application Received!</h2>
           <p className="text-slate-500 mb-8 leading-relaxed">
-            Thank you for applying to the 2026 Fall Cohort. Our quantitative review committee will analyze your proposal and get back to you within 14 business days.
+            Thank you for applying to the 2026 Startup Pitch Competition. Our selection committee will review your pitch deck and get back to you within 14 business days.
           </p>
           <button
             onClick={() => setSubmitted(false)}
             className="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all"
           >
-            Submit Another Application
+            Submit Another Entry
           </button>
         </div>
       </div>
@@ -46,31 +46,31 @@ const Register: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 py-12">
           {/* Instructions Column */}
           <div className="lg:w-1/3">
-            <h1 className="text-4xl font-black text-slate-900 mb-6">Apply Now</h1>
+            <h1 className="text-4xl font-black text-slate-900 mb-6">Enter the Pitch</h1>
             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              We are looking for founders who combine deep technical expertise with a vision for global impact. Join the ranks of winners like Aryav Agrawal.
+              We're looking for disruptive startups with a quantitative edge. Join the competition that launched <strong>Orbitonimics</strong>.
             </p>
 
             <div className="space-y-8">
               <div className="flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Detailed Proposal</h3>
-                  <p className="text-sm text-slate-500">Submit a 5-10 page project proposal or pitch deck in PDF format.</p>
+                  <h3 className="font-bold text-slate-900 mb-1">Pitch Deck</h3>
+                  <p className="text-sm text-slate-500">Upload your current pitch deck (PDF, max 15 slides).</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Quantitative Proof</h3>
-                  <p className="text-sm text-slate-500">Include any relevant data, mathematical proofs, or simulation results.</p>
+                  <h3 className="font-bold text-slate-900 mb-1">Founder Video</h3>
+                  <p className="text-sm text-slate-500">Be prepared to submit a 60-second intro video if shortlisted.</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Diversity Statement</h3>
-                  <p className="text-sm text-slate-500">Tell us how your background influences your approach to innovation.</p>
+                  <h3 className="font-bold text-slate-900 mb-1">Market Readiness</h3>
+                  <p className="text-sm text-slate-500">Clearly define your target market and current traction or MVP status.</p>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ const Register: React.FC = () => {
             <div className="mt-12 p-6 bg-blue-50 rounded-2xl border border-blue-100 flex gap-4">
               <Info className="text-blue-600 flex-shrink-0" size={24} />
               <p className="text-xs text-blue-800 leading-relaxed italic">
-                Funding amounts for the 2026 cohort range from $500 (seed) up to $10,000 for exceptional "Diamond Category" projects.
+                Winners receive $5,000 seed funding, plus access to the QVWI mentor network and investor demo days.
               </p>
             </div>
           </div>
@@ -88,16 +88,16 @@ const Register: React.FC = () => {
             <form onSubmit={handleSubmit} className="bg-white rounded-[2rem] shadow-xl p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Full Name</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Founder Name</label>
                   <input
                     required
                     type="text"
                     className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    placeholder="Enter your name"
+                    placeholder="Enter full name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Email Address</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Work Email</label>
                   <input
                     required
                     type="email"
@@ -108,26 +108,26 @@ const Register: React.FC = () => {
               </div>
 
               <div className="mb-8">
-                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Startup / Project Name</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Startup Name</label>
                 <input
                   required
                   type="text"
                   className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  placeholder="e.g. NeuralQuant"
+                  placeholder="e.g. Orbitonimics"
                 />
               </div>
 
               <div className="mb-8">
-                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Brief Description (Max 500 chars)</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">The Elevator Pitch (Max 500 chars)</label>
                 <textarea
                   required
                   className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none h-32 resize-none"
-                  placeholder="Tell us what you're building..."
+                  placeholder="Describe your solution and its impact..."
                 ></textarea>
               </div>
 
               <div className="mb-10">
-                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Pitch Deck / Proposal (PDF Only)</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Pitch Deck (PDF Only)</label>
                 <div className="relative group">
                   <input
                     required
@@ -148,7 +148,7 @@ const Register: React.FC = () => {
                     ) : (
                       <>
                         <p className="text-slate-900 font-bold mb-1">Click to upload or drag & drop</p>
-                        <p className="text-slate-500 text-sm">PDF, DOCX up to 10MB</p>
+                        <p className="text-slate-500 text-sm">PDF format only, max 10MB</p>
                       </>
                     )}
                   </div>
@@ -159,7 +159,7 @@ const Register: React.FC = () => {
                 type="submit"
                 className="w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-xl hover:bg-blue-700 transition-all flex items-center justify-center gap-3 shadow-lg shadow-blue-500/30"
               >
-                Submit Application <Send size={24} />
+                Submit Pitch Application <Send size={24} />
               </button>
             </form>
           </div>
