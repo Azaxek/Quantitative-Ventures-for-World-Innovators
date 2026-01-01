@@ -1,109 +1,82 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Rocket } from 'lucide-react';
+import { Menu, X, Rocket, Zap } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
-  const isTransparent = isHomePage && !scrolled;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${isTransparent ? 'bg-transparent py-5' : 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-slate-100'}`}
-      aria-label="Main navigation"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2 group" aria-label="QVWI Home">
-            <div className={`p-2 rounded-lg transition-colors ${isTransparent ? 'bg-white text-blue-600' : 'bg-blue-600 text-white'} group-hover:rotate-12 transition-transform`}>
-              <Rocket size={20} />
-            </div>
-            <span className={`font-extrabold text-xl tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-slate-900'}`}>
-              QVWI <span className="hidden sm:inline">Pitch</span>
-            </span>
-          </Link>
+    <nav className="fixed w-full z-50 p-6 pointer-events-none">
+      <div className="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
+        <Link 
+          to="/" 
+          className="nm-raised p-3 rounded-2xl flex items-center gap-3 group transition-all hover:scale-105"
+        >
+          <div className="bg-cyan-500/10 p-2 rounded-xl border border-cyan-500/30">
+            <Rocket className="text-[#00f3ff] glow-cyan" size={20} />
+          </div>
+          <span className="font-tech font-bold text-lg tracking-widest text-[#00f3ff] hidden sm:block">QVWI_PITCH</span>
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-6">
+          <div className="nm-inset p-2 rounded-2xl flex gap-2 px-4 border border-white/5">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-bold transition-colors duration-200 ${
-                  location.pathname === link.href
-                    ? 'text-blue-600 underline underline-offset-8'
-                    : isTransparent
-                    ? 'text-slate-200 hover:text-white'
-                    : 'text-slate-600 hover:text-blue-600'
+                className={`px-4 py-2 rounded-xl font-tech text-xs uppercase tracking-tighter transition-all ${
+                  location.pathname === link.href 
+                    ? 'nm-raised text-[#00f3ff] text-glow-cyan' 
+                    : 'text-slate-500 hover:text-white'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/register"
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 ${
-                isTransparent 
-                ? 'bg-white text-blue-600 hover:bg-blue-50' 
-                : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200'
-              }`}
-            >
-              Apply to Pitch
-            </Link>
           </div>
-
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg ${isTransparent ? 'text-white hover:bg-white/10' : 'text-slate-900 hover:bg-slate-100'}`}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+          <Link
+            to="/register"
+            className="nm-raised border border-cyan-500/20 px-8 py-3 rounded-2xl font-tech font-bold text-xs uppercase text-[#00f3ff] hover:border-cyan-500/50 transition-all flex items-center gap-2"
+          >
+            <Zap size={14} fill="currentColor" /> Apply_Now
+          </Link>
         </div>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden nm-raised p-3 rounded-2xl text-cyan-400"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
-      <div className={`md:hidden absolute w-full bg-white shadow-2xl transition-all duration-300 border-t border-slate-100 overflow-hidden ${isOpen ? 'max-h-screen border-b' : 'max-h-0'}`}>
-        <div className="px-4 pt-4 pb-8 space-y-2 bg-white">
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden mt-4 nm-raised p-6 rounded-3xl space-y-4 pointer-events-auto border border-white/5">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`block px-4 py-4 text-lg font-bold rounded-xl transition-colors ${
-                location.pathname === link.href ? 'text-blue-600 bg-blue-50' : 'text-slate-700 hover:bg-slate-50 hover:text-blue-600'
-              }`}
+              onClick={() => setIsOpen(false)}
+              className="block font-tech font-bold text-lg uppercase tracking-widest text-slate-400 hover:text-[#00f3ff]"
             >
-              {link.label}
+              > {link.label}
             </Link>
           ))}
-          <div className="pt-6 px-4">
-            <Link
-              to="/register"
-              className="block w-full text-center bg-blue-600 text-white py-4 rounded-2xl font-black shadow-xl shadow-blue-200 text-lg"
-            >
-              Register Now
-            </Link>
-          </div>
+          <Link
+            to="/register"
+            onClick={() => setIsOpen(false)}
+            className="block w-full text-center nm-inset p-4 rounded-2xl text-[#00f3ff] font-tech font-black"
+          >
+            INITIATE_APPLICATION
+          </Link>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

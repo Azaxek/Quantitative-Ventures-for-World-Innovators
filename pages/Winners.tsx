@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, Filter, Trophy, Star, Award } from 'lucide-react';
+import { Search, Trophy, Star, Award, SearchCode } from 'lucide-react';
 import { WINNERS_DATA } from '../constants';
 
 const Winners: React.FC = () => {
@@ -8,140 +8,72 @@ const Winners: React.FC = () => {
 
   const filteredWinners = WINNERS_DATA.filter(w =>
     w.year.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    w.firstPlace.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    w.secondPlace.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    w.thirdPlace.name.toLowerCase().includes(searchTerm.toLowerCase())
+    w.firstPlace.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50">
-      <header className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-4">Winners Archive</h1>
-              <p className="text-xl text-slate-500 max-w-2xl">
-                Celebrating excellence in innovation from 2009 to the present day.
-              </p>
-            </div>
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+    <div className="pt-32 min-h-screen pb-24 px-6 max-w-7xl mx-auto">
+      <header className="mb-20">
+        <div className="nm-raised rounded-[3rem] p-12 md:p-20 relative overflow-hidden border border-white/5">
+          <div className="relative z-10">
+            <h1 className="text-5xl md:text-8xl font-tech font-black uppercase text-white tracking-tighter mb-8 leading-none">
+              PITCH_ARCHIVE
+            </h1>
+            <div className="relative max-w-2xl">
               <input
                 type="text"
-                placeholder="Search names or years..."
-                className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"
+                placeholder="EXECUTE_QUERY..."
+                className="w-full nm-inset p-5 pl-14 rounded-2xl font-tech text-white placeholder-slate-600 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all border border-white/5"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
+              <SearchCode className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-400" size={24} />
             </div>
           </div>
         </div>
       </header>
 
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Featured Latest Winner (Only if not searching) */}
-          {!searchTerm && (
-            <div className="mb-20">
-              <div className="flex items-center gap-2 mb-8 text-blue-600">
-                <Star size={24} fill="currentColor" />
-                <h2 className="text-2xl font-bold uppercase tracking-widest">Current Cohort</h2>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Aryav Agrawal 1st Place Highlight */}
-                <div className="md:col-span-3 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-[2.5rem] p-12 text-white shadow-2xl overflow-hidden relative group">
-                  <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none transform translate-x-20 -translate-y-20 rotate-12">
-                    <Trophy size={400} />
-                  </div>
-                  <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-                    <img
-                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=400"
-                      alt="Aryav Agrawal"
-                      className="w-48 h-48 md:w-64 md:h-64 rounded-full border-8 border-white/20 object-cover shadow-xl"
-                    />
-                    <div>
-                      <div className="inline-block px-4 py-1.5 rounded-full bg-white text-blue-700 text-sm font-bold mb-4 uppercase">
-                        2025–2026 First Place Winner
-                      </div>
-                      <h3 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">Aryav Agrawal</h3>
-                      <p className="text-xl text-blue-100 font-light mb-8 max-w-2xl leading-relaxed">
-                        Funded $5,000 for <strong>Orbitonimics</strong>. Mapping impact for 3,000+ disaster regions and implementing 640 safety routes globally.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                          <span className="block text-blue-200 text-[10px] font-black uppercase mb-1">Company</span>
-                          <span className="text-lg font-bold">Orbitonimics</span>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                          <span className="block text-blue-200 text-[10px] font-black uppercase mb-1">Impact</span>
-                          <span className="text-lg font-bold">3,000+ Regions</span>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
-                          <span className="block text-blue-200 text-[10px] font-black uppercase mb-1">Focus</span>
-                          <span className="text-lg font-bold">Business & Space</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {filteredWinners.map((winner) => (
+          <div key={winner.year} className="nm-raised p-8 rounded-[2.5rem] flex flex-col group border border-white/5 hover:border-cyan-500/20 transition-colors">
+            <div className="nm-inset text-cyan-400 inline-block px-4 py-1 font-tech font-bold text-[10px] mb-8 self-start rounded-full border border-cyan-400/10">
+              COHORT_{winner.year}
+            </div>
+            
+            <div className="space-y-8 flex-grow">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Star size={14} className="text-[#ff00ff] glow-magenta" fill="currentColor" />
+                  <span className="font-tech text-[10px] font-black uppercase text-slate-500 tracking-widest">01_ALPHA</span>
                 </div>
+                <h3 className="text-2xl font-tech font-black text-white">{winner.firstPlace.name}</h3>
+                <p className="font-tech font-bold text-xs text-cyan-400 mt-1 uppercase tracking-widest">{winner.firstPlace.funding} SEED_ALLOCATED</p>
+              </div>
+
+              <div className="nm-inset p-5 rounded-2xl border border-white/5">
+                <span className="font-tech text-[9px] font-black uppercase text-slate-600 tracking-widest block mb-2">02_BETA</span>
+                <h4 className="text-lg font-tech font-bold text-slate-300">{winner.secondPlace.name}</h4>
+              </div>
+
+              <div className="nm-inset p-5 rounded-2xl border border-white/5">
+                <span className="font-tech text-[9px] font-black uppercase text-slate-600 tracking-widest block mb-2">03_GAMMA</span>
+                <h4 className="text-lg font-tech font-bold text-slate-400">{winner.thirdPlace.name}</h4>
               </div>
             </div>
-          )}
-
-          {/* Grid of Past Winners */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredWinners.map((winner, idx) => (
-              <div key={winner.year} className={`bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 ${idx === 0 && !searchTerm ? 'hidden' : ''}`}>
-                <div className="flex justify-between items-center mb-8">
-                  <span className="text-blue-600 font-black text-2xl">{winner.year}</span>
-                  <Trophy className="text-slate-300" size={24} />
-                </div>
-
-                <div className="space-y-6">
-                  {/* 1st Place */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 flex-shrink-0">
-                      <Award size={20} />
-                    </div>
-                    <div>
-                      <span className="block text-slate-400 text-[10px] font-black uppercase tracking-widest">1st Place • {winner.firstPlace.funding}</span>
-                      <span className="text-lg font-bold text-slate-900">{winner.firstPlace.name}</span>
-                    </div>
-                  </div>
-
-                  {/* 2nd Place */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 flex-shrink-0">
-                      <Award size={20} />
-                    </div>
-                    <div>
-                      <span className="block text-slate-400 text-[10px] font-black uppercase tracking-widest">2nd Place • {winner.secondPlace.funding}</span>
-                      <span className="text-lg font-bold text-slate-900">{winner.secondPlace.name}</span>
-                    </div>
-                  </div>
-
-                  {/* 3rd Place */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 flex-shrink-0">
-                      <Award size={20} />
-                    </div>
-                    <div>
-                      <span className="block text-slate-400 text-[10px] font-black uppercase tracking-widest">3rd Place • {winner.thirdPlace.funding}</span>
-                      <span className="text-lg font-bold text-slate-900">{winner.thirdPlace.name}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            
+            <div className="mt-8 pt-6 border-t border-white/5 flex justify-between items-center">
+              <Trophy className="text-slate-700 group-hover:text-cyan-500 transition-colors" size={24} />
+              <button className="text-[10px] font-tech font-black text-slate-500 hover:text-white uppercase tracking-tighter underline">VIEW_DECK</button>
+            </div>
           </div>
+        ))}
+      </div>
 
-          {filteredWinners.length === 0 && (
-            <div className="py-20 text-center">
-              <p className="text-2xl text-slate-400 font-bold">No winners found matching your search.</p>
-            </div>
-          )}
+      {filteredWinners.length === 0 && (
+        <div className="text-center py-24 nm-inset rounded-3xl border border-white/5">
+          <h2 className="text-3xl font-tech font-black text-slate-600 uppercase italic tracking-tighter">DATA_STREAM_EMPTY</h2>
         </div>
-      </section>
+      )}
     </div>
   );
 };

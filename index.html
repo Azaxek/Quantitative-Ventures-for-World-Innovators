@@ -4,40 +4,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantitative Ventures World Innovators Startup Pitch Competition | Global Tech Stage</title>
+  <title>QVWI Pitch Competition | Cyber-Neumorphic Interface</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Official home of the Quantitative Ventures World Innovators (QVWI) Startup Pitch Competition. Seed funding, mentorship, and global recognition for space and business innovators.">
-  <meta name="keywords" content="startup competition, pitch competition, space tech, business innovation, quantitative ventures, seed funding, world innovators, QVWI, Orbitonimics">
-  <meta name="author" content="Quantitative Ventures World Innovators">
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="Official home of the Quantitative Ventures World Innovators (QVWI) Startup Pitch Competition. A futuristic platform for space and business tech founders.">
+  <meta name="keywords" content="startup pitch, cyber tech, space ventures, neumorphism, quantitative ventures, seed funding">
   
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://qvwi-pitch.com/">
-  <meta property="og:title" content="Quantitative Ventures World Innovators Startup Pitch Competition">
-  <meta property="og:description" content="A global launchpad for tech-driven solutions. Apply to pitch and secure seed investment for your breakthrough venture.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1200">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://qvwi-pitch.com/">
-  <meta property="twitter:title" content="Quantitative Ventures World Innovators Startup Pitch Competition">
-  <meta property="twitter:description" content="A global launchpad for tech-driven solutions. Apply to pitch and secure seed investment for your breakthrough venture.">
-  <meta property="twitter:image" content="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1200">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Public+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    :root {
+      --bg-color: #0a0b10;
+      --shadow-dark: #050507;
+      --shadow-light: #12141d;
+      --neon-cyan: #00f3ff;
+      --neon-magenta: #ff00ff;
     }
-    .mono {
+
+    body {
+      background-color: var(--bg-color);
+      color: #e0e0e0;
+      font-family: 'Public Sans', sans-serif;
+    }
+
+    .font-tech {
       font-family: 'JetBrains Mono', monospace;
     }
+
+    /* Neumorphic Shadow Presets */
+    .nm-raised {
+      background: var(--bg-color);
+      box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    }
+    
+    .nm-inset {
+      background: var(--bg-color);
+      box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+    }
+
+    .nm-btn {
+      background: var(--bg-color);
+      box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+      transition: all 0.2s ease;
+    }
+
+    .nm-btn:hover {
+      box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+      color: var(--neon-cyan);
+    }
+
+    .nm-btn:active {
+      box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+      transform: scale(0.98);
+    }
+
+    /* Cyber Glows */
+    .glow-cyan {
+      filter: drop-shadow(0 0 5px var(--neon-cyan));
+    }
+    
+    .text-glow-cyan {
+      text-shadow: 0 0 10px var(--neon-cyan);
+    }
+
+    .border-glow-cyan {
+      border: 1px solid var(--neon-cyan);
+      box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
+    }
+
+    /* Grid Background */
+    .cyber-grid {
+      background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .scanline {
+      width: 100%;
+      height: 100px;
+      z-index: 5;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 243, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.1;
+      position: absolute;
+      bottom: 100%;
+      animation: scanline 10s linear infinite;
+    }
+
+    @keyframes scanline {
+      0% { bottom: 100%; }
+      100% { bottom: -100px; }
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -55,7 +115,8 @@
   }
   </script>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="cyber-grid relative min-h-screen">
+  <div class="scanline pointer-events-none"></div>
   <div id="root"></div>
 </body>
 </html>

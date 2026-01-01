@@ -1,151 +1,124 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Zap, Globe, Cpu } from 'lucide-react';
+import { ArrowRight, Award, Zap, Globe, Cpu, ChevronRight, Activity } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-32 pb-24 px-6 max-w-7xl mx-auto">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950" aria-labelledby="hero-heading">
-        {/* Animated Background Gradients */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse"></div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 animate-bounce">
-            Startup Pitch Competition 2025–2026
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24 items-center">
+        <div className="lg:col-span-7">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full nm-inset text-cyan-400 text-[10px] font-tech font-bold mb-8 border border-cyan-400/10">
+            <Activity size={14} className="animate-pulse" /> SYSTEM_ACTIVE: COHORT_2026
           </div>
-          <h1 id="hero-heading" className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
-            Quantitative Ventures World Innovators <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Startup Pitch Competition</span>
+          <h1 className="text-5xl md:text-8xl font-tech font-extrabold leading-none mb-8 tracking-tighter text-white">
+            QUANTUM <br/>
+            <span className="text-[#00f3ff] text-glow-cyan italic">VENTURES</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto mb-10 leading-relaxed font-light">
-            Empowering the next generation of global founders through high-stakes competition, seed investment, and technical mentorship in Space and Business Tech.
+          <p className="text-xl md:text-2xl font-light text-slate-400 mb-12 leading-relaxed border-l-4 border-[#ff00ff]/30 pl-8 max-w-2xl">
+            A high-fidelity stage for tech founders navigating space-logistics and business intelligence. Deploying seed capital to the 0.1% of world innovators.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-wrap gap-6">
             <Link
               to="/register"
-              className="w-full sm:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
+              className="nm-btn border border-cyan-500/30 p-6 px-12 rounded-3xl font-tech font-black text-xl text-[#00f3ff] uppercase flex items-center gap-3"
             >
-              Pitch Your Startup <ArrowRight size={20} />
+              Launch_Pitch <ArrowRight />
             </Link>
             <Link
               to="/about"
-              className="w-full sm:w-auto px-10 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-lg transition-all border border-slate-700"
+              className="nm-raised border border-white/5 p-6 px-12 rounded-3xl font-tech font-black text-xl text-slate-300 uppercase flex items-center gap-3 hover:text-white"
             >
-              Learn More
+              Arch_Data
             </Link>
           </div>
         </div>
-
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-slate-700 rounded-full flex justify-center pt-2">
-            <div className="w-1 h-2 bg-blue-50 rounded-full"></div>
+        <div className="lg:col-span-5 relative">
+          <div className="nm-raised rounded-[3rem] p-4 border border-white/10 rotate-3">
+             <div className="relative overflow-hidden rounded-[2.5rem] h-80 md:h-[500px] border-2 border-cyan-500/20">
+                <img 
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" 
+                  className="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700 scale-110"
+                  alt="Cyber Earth"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b10] via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 nm-inset p-4 rounded-2xl backdrop-blur-md border border-cyan-400/20">
+                   <p className="font-tech text-xs text-cyan-400 mb-1 font-bold">LATEST_DEPLOYMENT</p>
+                   <p className="font-tech text-xl text-white font-black">ORBITONIMICS_MAPS</p>
+                </div>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats/Highlight Section */}
-      <section className="py-20 bg-white" aria-label="Competition statistics">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mx-auto mb-6">
-                <Globe size={24} />
-              </div>
-              <h2 className="text-4xl font-black text-slate-900 mb-2">$500K+</h2>
-              <p className="text-slate-500 font-medium">Seed Capital Committed</p>
+      {/* Metric Dashboard */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+        {[
+          { label: 'SEED_CAPITAL', val: '$500K+', icon: <Globe className="text-cyan-400" />, col: 'cyan' },
+          { label: 'FOUNDER_NODES', val: '150+', icon: <Cpu className="text-magenta-400" />, col: 'magenta' },
+          { label: 'VC_NETWORK', val: '50+', icon: <Zap className="text-yellow-400" />, col: 'yellow' }
+        ].map((item) => (
+          <div key={item.label} className="nm-raised rounded-3xl p-10 flex flex-col items-center border border-white/5">
+            <div className="nm-inset p-4 rounded-2xl mb-6">
+               {item.icon}
             </div>
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white mx-auto mb-6">
-                <Cpu size={24} />
-              </div>
-              <h2 className="text-4xl font-black text-slate-900 mb-2">150+</h2>
-              <p className="text-slate-500 font-medium">Startup Pitches Annually</p>
+            <h2 className="text-5xl font-tech font-black text-white mb-2">{item.val}</h2>
+            <p className="font-tech text-xs tracking-widest text-slate-500 font-bold uppercase">{item.label}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Featured Founder Spotlight */}
+      <section className="mb-24">
+        <div className="nm-raised rounded-[4rem] overflow-hidden flex flex-col lg:flex-row border border-white/5">
+          <div className="lg:w-2/5 h-[400px] lg:h-auto relative">
+            <img 
+              src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800"
+              className="w-full h-full object-cover opacity-50 contrast-125"
+              alt="Orbital View"
+            />
+            <div className="absolute inset-0 bg-cyan-900/10 mix-blend-overlay"></div>
+          </div>
+          <div className="lg:w-3/5 p-10 md:p-20 relative">
+            <div className="inline-block px-4 py-1 rounded-full nm-inset border border-magenta-500/20 text-[#ff00ff] font-tech text-[10px] font-bold mb-6">
+              CASE_STUDY: ARYAV_AGRAWAL
             </div>
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-              <div className="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center text-white mx-auto mb-6">
-                <Zap size={24} />
+            <h3 className="text-4xl md:text-6xl font-tech font-black text-white mb-8 leading-tight">
+              ORBITO<span className="text-cyan-400">NIMICS</span>
+            </h3>
+            <p className="text-lg text-slate-400 leading-relaxed mb-10 font-light">
+              Founded by <strong>Aryav Agrawal</strong>, Orbitonimics is redefining global safety through orbital data. By mapping 3,000+ disaster regions and establishing 640 safety routes, they are the gold standard for space-integrated business logistics.
+            </p>
+            <div className="grid grid-cols-2 gap-6 mb-12">
+              <div className="nm-inset p-6 rounded-3xl border border-white/5">
+                <p className="font-tech text-[10px] text-slate-500 mb-2 font-bold uppercase tracking-widest">Regions_Mapped</p>
+                <p className="text-3xl font-tech font-black text-[#00f3ff]">3,000+</p>
               </div>
-              <h2 className="text-4xl font-black text-slate-900 mb-2">50+</h2>
-              <p className="text-slate-500 font-medium">Global VC Partners</p>
+              <div className="nm-inset p-6 rounded-3xl border border-white/5">
+                <p className="font-tech text-[10px] text-slate-500 mb-2 font-bold uppercase tracking-widest">Active_Routes</p>
+                <p className="text-3xl font-tech font-black text-[#ff00ff]">640</p>
+              </div>
             </div>
+            <Link to="/winners" className="nm-btn inline-flex items-center gap-2 p-4 px-8 rounded-2xl font-tech font-bold text-xs text-white">
+              VIEW_ALL_NODES <ChevronRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Winner Section */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden" aria-labelledby="spotlight-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 id="spotlight-heading" className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Pitch Spotlight</h2>
-            <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
-          </div>
-
-          <article className="bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col lg:flex-row items-center">
-            <div className="lg:w-2/5 h-full relative group">
-              <img
-                src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800"
-                alt="Orbitonimics Satellite View"
-                className="w-full h-[400px] lg:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-              <div className="absolute bottom-8 left-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <Award className="text-yellow-400" />
-                  <span className="text-white font-bold uppercase tracking-wider text-sm">2025–2026 Pitch Winner</span>
-                </div>
-                <h3 className="text-4xl font-bold text-white">Aryav Agrawal</h3>
-              </div>
-            </div>
-            <div className="lg:w-3/5 p-8 md:p-16">
-              <div className="inline-block px-4 py-2 rounded-lg bg-blue-50 text-blue-700 font-bold mb-6">
-                Seed Investment: $5,000
-              </div>
-              <h4 className="text-2xl font-bold text-slate-900 mb-6 uppercase tracking-tight">Venture: Orbitonimics</h4>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Aryav Agrawal's <strong>Orbitonimics</strong> is reshaping the future of business resilience and space technology. His company built advanced satellite impact maps for 3,000+ disaster-prone regions and implemented 640 safety routes across public buildings in 3 countries, setting a new benchmark for space-integrated logistics.
-              </p>
-              <div className="grid grid-cols-2 gap-6 mb-10">
-                <div className="bg-slate-50 p-6 rounded-2xl">
-                  <span className="block text-slate-400 text-xs font-bold uppercase mb-1">Impact Mapping</span>
-                  <span className="text-2xl font-black text-slate-900">3,000+ Regions</span>
-                </div>
-                <div className="bg-slate-50 p-6 rounded-2xl">
-                  <span className="block text-slate-400 text-xs font-bold uppercase mb-1">Primary Focus</span>
-                  <span className="text-2xl font-black text-slate-900">Business & Space</span>
-                </div>
-              </div>
-              <Link to="/winners" className="text-blue-600 font-bold flex items-center gap-2 group">
-                Browse Past Pitch Winners <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-              </Link>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-blue-600 text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">
-            Ready to Pitch Your Idea?
+      {/* Final Call */}
+      <section className="nm-inset rounded-[3rem] p-12 text-center border border-cyan-500/10 relative overflow-hidden">
+        <div className="relative z-10">
+          <h2 className="text-4xl md:text-7xl font-tech font-black text-white mb-8 tracking-tighter">
+            SYNC YOUR <span className="text-[#00f3ff]">VISION</span>
           </h2>
-          <p className="text-blue-100 text-xl max-w-2xl mx-auto mb-12">
-            Applications for the 2026 Cohort are now open. Secure your chance to pitch at the Quantitative Ventures World Innovators Startup Pitch Competition.
+          <p className="text-slate-400 font-tech text-lg mb-12 max-w-xl mx-auto opacity-70">
+            Accepting data-driven pitches for the upcoming Q1 evaluation cycle.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/register" className="px-12 py-5 bg-white text-blue-600 rounded-xl font-black text-xl hover:bg-blue-50 transition-all shadow-xl">
-              Apply to Pitch
-            </Link>
-            <Link to="/contact" className="px-12 py-5 bg-blue-700 text-white rounded-xl font-black text-xl hover:bg-blue-800 transition-all border border-blue-500">
-              Inquire Now
-            </Link>
-          </div>
+          <Link to="/register" className="nm-btn border border-cyan-500/20 bg-[#00f3ff]/5 p-6 px-16 rounded-3xl font-tech font-black text-2xl text-[#00f3ff] uppercase tracking-tighter hover:text-white transition-all">
+            Execute_Upload
+          </Link>
         </div>
       </section>
     </div>
